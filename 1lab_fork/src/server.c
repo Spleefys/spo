@@ -8,7 +8,6 @@
 #include <unistd.h>
 
 int main() {
-  int delay;
   char buffer[sizeof(int)];
   int sockfd, ret, newSocket, bytes_read;
   struct sockaddr_in serverAddr;
@@ -56,7 +55,7 @@ int main() {
         while (1) {
           bytes_read = recv(newSocket, buffer, sizeof(int), 0);
           if (bytes_read <= 0) break;
-          printf("Reciving message from %d: %s\n", ntohs(newAddr.sin_port),
+          printf("Receiving message from %d: %s\n", ntohs(newAddr.sin_port),
                  buffer);
         }
         close(newSocket);
